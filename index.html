@@ -21,6 +21,15 @@
   <!-- Custom styles for this template -->
   <link href="css/resume.min.css" rel="stylesheet">
 
+  <script>
+    function popup(){
+        var url = "popup.html";
+        var name = "popup test";
+        var option = "width = 400, height = 230, top = 50, left = 100, location = no"
+        window.open(url, name, option);
+    }
+  </script>
+
 </head>
 
 <body id="page-top">
@@ -71,22 +80,23 @@
         </div>
         <p class="lead mb-5">My dream is to develop an IT service that can give people a convenient life. In order to realize my dream, I'm gaining development experience and developing my IT skills.</p>
         <div class="social-icons">
-          <!--
+          
           <a href="#">
             <i class="fab fa-linkedin-in"></i>
           </a>
-          -->
+         
           <a href="https://github.com/ChapJun">
             <i class="fab fa-github"></i>
           </a>
-          <!--
-          <a href="#">
-            <i class="fab fa-twitter"></i>
+
+          <a href="#" onclick= "javascript:popup(this.frm)" target="_blank">
+            <i class="fab fa-twitter"></i>            
           </a>
+
           <a href="#">
             <i class="fab fa-facebook-f"></i>
           </a>
-          -->
+         
         </div>
       </div>
     </section>
