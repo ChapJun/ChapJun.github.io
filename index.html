@@ -20,14 +20,39 @@
 
   <!-- Custom styles for this template -->
   <link href="css/resume.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <script>
-    function popup(){
-        var url = "popup.html";
-        var name = "popup test";
-        var option = "width = 400, height = 230, top = 50, left = 100, location = no"
-        window.open(url, name, option);
+    function popup() {
+      var url = "popup.html";
+      var name = "popup test";
+      var option = "width = 400, height = 230, top = 50, left = 100, location = no"
+      window.open(url, name, option);
     }
+
+    function loadFile(input) {
+
+      var file = input.files[0];
+      console.log(file);
+
+      var newImage = document.createElement("img");
+      newImage.setAttribute("class", 'img');
+      newImage.src = URL.createObjectURL(file);
+
+      newImage.style.width = "100px";
+      newImage.style.height = "100px";
+      // newImage.style.visibility = "hidden";   //버튼을 누르기 전까지는 이미지를 숨긴다
+      newImage.style.objectFit = "contain";
+
+      //이미지를 image-show div에 추가
+      var container = document.getElementById('image-show');
+      container.appendChild(newImage);
+    }
+
+    if (!('url' in window) && ('webkitURL' in window)) {
+      window.URL = window.webkitURL;
+    }
+
   </script>
 
 </head>
@@ -38,10 +63,12 @@
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
       <span class="d-block d-lg-none">Jun Yun</span>
       <span class="d-none d-lg-block">
-        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt=""  style="max-width: 100%; height: auto;">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt=""
+          style="max-width: 100%; height: auto;">
       </span>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -75,28 +102,37 @@
         <h1 class="mb-0">Jun
           <span class="text-primary">Yun</span>
         </h1>
-        <div class="subheading mb-5">61, Yongmasan-ro 81-gil, Jungnang-gu, Seoul, Republic of Korea · (+82)10-5460-3625 ·
+        <div class="subheading mb-5">61, Yongmasan-ro 81-gil, Jungnang-gu, Seoul, Republic of Korea · (+82)10-5460-3625
+          ·
           <a href="mailto:junc94@naver.com">junc94@Naver.com</a>
         </div>
-        <p class="lead mb-5">My dream is to develop an IT service that can give people a convenient life. In order to realize my dream, I'm gaining development experience and developing my IT skills.</p>
+        <p class="lead mb-5">My dream is to develop an IT service that can give people a convenient life. In order to
+          realize my dream, I'm gaining development experience and developing my IT skills.</p>
         <div class="social-icons">
-          
+
           <a href="#">
             <i class="fab fa-linkedin-in"></i>
           </a>
-         
+
           <a href="https://github.com/ChapJun">
             <i class="fab fa-github"></i>
           </a>
 
-          <a href="#" onclick= "javascript:popup()" target="_blank">
-            <i class="fab fa-twitter"></i>            
+          <a href="#" onclick="javascript:popup()" target="_blank">
+            <i class="fab fa-twitter"></i>
           </a>
 
           <a href="#">
             <i class="fab fa-facebook-f"></i>
           </a>
-         
+
+          <a href="#">
+            <input type="file" id="camera" name="camera" capture="camera" accept="image/*" onchange="loadFile(this)">
+          </a>
+
+          <div id="image-show"></div>
+
+
         </div>
       </div>
     </section>
@@ -111,7 +147,9 @@
           <div class="resume-content">
             <h3 class="mb-0">Application · ChatBot Developer (Intern)</h3>
             <div class="subheading mb-3">Medical Solutions</div>
-            <p>Participated in the development of services to help caregivers caring for dementia patients. I developed an application and Chatbot that uses JAVA and DialogFlow to communicate with caregivers. I was able to learn new skills and experience service development for two months.</p>
+            <p>Participated in the development of services to help caregivers caring for dementia patients. I developed
+              an application and Chatbot that uses JAVA and DialogFlow to communicate with caregivers. I was able to
+              learn new skills and experience service development for two months.</p>
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">June 2019 - August 2019</span>
@@ -138,7 +176,7 @@
             <span class="text-primary">March 2013 - Present</span>
           </div>
         </div>
-        
+
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
           <div class="resume-content">
             <h3 class="mb-0">Multicampus Korea</h3>
@@ -194,14 +232,17 @@
         <ul class="fa-ul mb-0">
           <li>
             <i class="fa-li fa fa-check"></i>
-            Class Architecture Design According to User Requirements</li>
-          <li>
-              <i class="fa-li fa fa-check"></i>
-              Write/Edit Source Code.</li>
+            Class Architecture Design According to User Requirements
+          </li>
           <li>
             <i class="fa-li fa fa-check"></i>
-            Testing &amp; Debugging</li>
-       
+            Write/Edit Source Code.
+          </li>
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Testing &amp; Debugging
+          </li>
+
         </ul>
       </div>
     </section>
@@ -211,8 +252,12 @@
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">
       <div class="w-100">
         <h2 class="mb-5">Interests</h2>
-        <p>Apart from being a developer, I enjoy most of my time being outdoors. In the summer, I enjoy swimming and playing in the water. During the cooler months here in Seoul, I ride a bicycle and an electric scooter(kickboard).</p>
-        <p class="mb-0">When forced indoors, I follow a number of action and fantasy genre movies and television shows, I am a passionate gamer, and I spend a large amount of my free time exploring the latest technology advancements in the development world.</p>
+        <p>Apart from being a developer, I enjoy most of my time being outdoors. In the summer, I enjoy swimming and
+          playing in the water. During the cooler months here in Seoul, I ride a bicycle and an electric
+          scooter(kickboard).</p>
+        <p class="mb-0">When forced indoors, I follow a number of action and fantasy genre movies and television shows,
+          I am a passionate gamer, and I spend a large amount of my free time exploring the latest technology
+          advancements in the development world.</p>
       </div>
     </section>
 
@@ -223,8 +268,8 @@
         <h2 class="mb-5">Awards &amp; Certifications</h2>
         <ul class="fa-ul mb-0">
           <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              Excellence Award - Kwangwoon University - Industry-Academic Cooperation Project
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            Excellence Award - Kwangwoon University - Industry-Academic Cooperation Project
           </li>
         </ul>
       </div>
